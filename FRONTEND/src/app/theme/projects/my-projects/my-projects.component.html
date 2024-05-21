@@ -1,0 +1,108 @@
+ 
+ 
+ <div *ngIf="role=='Resource' || role=='Approver'" style="border-radius: 1rem">
+    <!-- <div class="card-body col-lg-12">
+            <ag-grid-angular class="ag-theme-alpine pt-3"
+               [rowData]="this.myProjectsList" [columnDefs]="myProjectsColumnsDefs" [pagination]="true"
+               [paginationPageSize]="10" (gridReady)="onGridReady($event)"></ag-grid-angular>
+   </div> -->
+   <div class="row pt-3">
+      <div class="col-lg-12">
+         <table class="table table-hover" style="background-color: white !important; border-radius: 20px;">
+            <thead>
+                <tr>
+                    <th scope="col" >Project Name</th>
+                    <th scope="col" >Client Name</th>
+                    <th scope="col" >Reporting Manager</th>
+                    <th scope="col" >Start Date</th>
+                    <th scope="col" >End Date</th>
+                    <th scope="col" >Work Hours Limit</th>
+                    <th scope="col" >Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let myproject of displayedProjects">
+                    <td >{{myproject?.project.project_name}}</td>
+                    <td>{{myproject?.project.client.client_name}}</td>
+                    <td>{{myproject?.project.project_manager.first_name + " " + myproject?.project.project_manager.last_name}}</td>
+                    <td>{{myproject?.project.start_date}}</td> 
+                    <td>{{myproject?.project.end_date}}</td>
+                    <td>{{myproject?.work_hours_limit}}</td>
+                    
+                    <td class="text-center">
+                        <div *ngIf="myproject?.status==='Assigned'">
+                            <span style="background-color: rgb(144, 238, 144,0.5); padding: 8px 20px;  border-radius: 50px; ">Assigned</span>
+                        </div>
+                        <div *ngIf="myproject?.status!=='Assigned'">
+                            <span style="background-color: rgb(255, 0, 0,0.2); padding: 8px 20px; border-radius: 50px; ">{{myproject?.status}}</span>
+                        </div>
+                    </td>
+                   
+                </tr>
+        </table>
+        <div class="d-flex justify-content-end p-2">
+            <ngb-pagination
+              [collectionSize]="allMyProjects.length"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshCountries()"
+            >
+            </ngb-pagination>
+        </div>
+      </div>
+   </div>
+</div>
+<div *ngIf="role=='Admin'" style="overflow-x: hidden;">
+   <!-- <div class="card-body col-lg-12">
+      <ag-grid-angular class="ag-theme-alpine pt-3"
+         [rowData]="this.myProjectsList" [columnDefs]="myProjectsColumnsDefs" [pagination]="true"
+         [paginationPageSize]="10" (gridReady)="onGridReady($event)"></ag-grid-angular>
+   </div> -->
+   <div class="row pt-3" >
+      <div class="col-lg-12">
+         <table class="table table-hover" style="background-color: white !important; border-radius: 10px;">
+            <thead>
+                <tr>
+                    <th scope="col" >Project Name</th>
+                    <th scope="col" >Client Name</th>
+                    <th scope="col" >Reporting Manager</th>
+                    <th scope="col" >Start Date</th>
+                    <th scope="col" >End Date</th>
+                    <th scope="col" >Work Hours Limit</th>
+                    <th scope="col" >Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let myproject of displayedProjects">
+                    <td >{{myproject?.project.project_name}}</td>
+                    <td>{{myproject?.project.client.client_name}}</td>
+                    <td>{{myproject?.project.project_manager.first_name + " " + myproject?.project.project_manager.last_name}}</td>
+                    <td>{{myproject?.project.start_date}}</td> 
+                    <td>{{myproject?.project.end_date}}</td>
+                    <td>{{myproject?.work_hour_limit}}</td>
+                    
+                    <td class="text-center">
+                        <div *ngIf="myproject?.status==='Assigned'">
+                            <span style="background-color: rgb(144, 238, 144,0.5); padding: 8px 20px;  border-radius: 50px; ">Assigned</span>
+                        </div>
+                        <div *ngIf="myproject?.status!=='Assigned'">
+                            <span style="background-color: rgb(255, 0, 0,0.2); padding: 8px 20px; border-radius: 50px; ">{{myproject?.status}}</span>
+                        </div>
+                    </td>
+                   
+                </tr>
+        </table>
+        <div class="d-flex justify-content-end p-2">
+            <ngb-pagination
+              [collectionSize]="allMyProjects.length"
+              [(page)]="page"
+              [pageSize]="pageSize"
+              (pageChange)="refreshCountries()"
+            >
+            </ngb-pagination>
+        </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,137 @@
+
+.lavalite-bg .lavalite-overlay{ 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* background: linear-gradient(135deg, rgb(41,58,88, 0.95) 0%, rgb(41,58,88, 0.50) 100%) !important; */
+  background-image: url('../../assets/images/cms3.jpg');
+}
+.lavalite-bg{
+  height: 100vh;
+position: relative;
+width: 100%;
+}
+#loginImage{
+height: 104%;
+position: relative;
+padding-left: 0px;
+width: 100%;
+border: transparent;
+background-image: url('../../assets/images/cms1.jpg');
+/* opacity: 0.9; */
+border-top-left-radius: 20px !important;
+border-bottom-left-radius: 20px !important;
+background-position:center;
+-webkit-background-size: cover;
+background-size:cover;
+background-repeat: no-repeat;
+}
+#loginImage #img{
+
+position: absolute;
+border-top-left-radius: 20px !important;
+border-bottom-left-radius: 20px !important;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  
+}
+
+.prutech{
+height: 10vh;
+position: relative;
+width: 100%;
+margin-top: 0px !important;
+padding-top: 0px !important;
+/* background-image: url('../../assets/images/prutech.png'); */
+background-position: center;
+-webkit-background-size: cover;
+background-size:contain;
+background-repeat: no-repeat;
+
+}
+
+#login-form{
+  width: 85% !important;
+height: 100% !important;
+}
+
+.input-placeholder {
+position: relative;
+}
+
+.login-label{
+  font-size: 25px !important;
+  font-weight: bold;
+}
+
+.submit-button {
+border-radius: 5px;
+background-color: #293A58;
+border: none;
+color: #fff !important;
+  
+  margin-top: -15px !important;
+  font-size: 15px !important;
+  
+}
+
+.submit-button:disabled {
+opacity: 0.65;
+}
+
+.submit-button:focus{
+outline: none  !important;
+box-shadow: 0 0 5px rgb(144, 146, 146);
+  border: 1px solid rgb(227, 229, 230);
+}
+
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  font-size: 18px;
+}
+
+.password-toggle:hover {
+  color: #777;
+}
+
+input::placeholder {
+  font: 1.1rem/3 sans-serif !important;
+color: rgb(137, 137, 137);
+}
+
+input[type="text"]{
+font-size: 15px !important;
+color: black;
+}
+
+.submit-button:hover{
+background-color: #506681 !important;
+}
+
+.submit-button{
+height: 7vh; 
+font-size: 20px !important; 
+border-radius: 25px; 
+background-color: #293A58 !important;
+}
+
+
+
+
+

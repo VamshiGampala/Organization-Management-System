@@ -1,0 +1,172 @@
+<!-- <h1 class="topHeader" style="color: #3F51B5; font-size: 20px;">Projects</h1> -->
+<div class="row">
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Total Projects</h5>
+                <span class="h2 font-weight-bold mb-0">{{collectionSize?.total_projects_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape text-white rounded-circle shadow"  style="background-color: #FB6340;">
+                  <i class="fas fa-sliders"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Active Projects</h5>
+                <span class="h2 font-weight-bold mb-0">{{this.collectionSize?.active_projects_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape text-white rounded-circle shadow" style="background-color: #4FD089;">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Inactive Projects</h5>
+                <span class="h2 font-weight-bold mb-0">{{this.collectionSize?.inactive_projects_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-column"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pb-0">
+    <div class="row pt-3 pl-2 pr-2">
+        <div class="col-lg-12 pt-0">
+            <mat-tab-group [(selectedIndex)]="tabIndex" *ngIf="this.role === 'Admin'" class="pl-0">
+                <mat-tab label="Manage Projects" >
+                    <div class="" style="overflow: hidden;">
+                        <!-- <div class="row">
+                            <div class="col-lg-3">
+                                <span type="submit" (click)="getProjectsList('All')">
+                                    <b>Total Projects</b><a class="box ml-1">{{this.projectList?.total_projects_count}}</a>
+                                </span>
+                            </div>
+                            <div class="col-lg-3">
+                                <span type="submit" (click)="getProjectsList('Active')">
+                                    <b>Active Projects</b> <a
+                                        class="box ml-1">{{this.projectList?.active_projects_count}}</a>
+                                </span>
+                            </div>
+                            <div class="col-lg-3">
+                                <span type="submit" (click)="getProjectsList('Inactive')">
+                                    <b>Inactive Projects</b> <a
+                                        class="box ml-1">{{this.projectList?.inactive_projects_count}}</a>
+                                </span>
+                            </div>
+                        </div> -->
+                        <div class="row pt-3">
+                            <div class="col-lg-3">
+                                <div class="search-container">
+                                    <input class="form-control form-control-sm search-input" style="height: 40px !important;" type="text"
+                                        [(ngModel)]="searchText" (keyup)="search()" placeholder="Search Projects">
+                                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 text-right">
+                                <button type="button" [routerLink]="['/project-list','add-project']" class="add-button">
+                                    <i class="fa-regular fa-plus" aria-hidden="true"></i> Add Projects
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div class="ag-grid-container py-3 pr-3">
+                            <ag-grid-angular class="ag-theme-alpine" [gridOptions]="gridOptions"
+                                (paginationChanged)="onPaginationChanged($event)"
+                                (gridReady)="onGridReady($event)"></ag-grid-angular>
+                        </div> -->
+                        <div class="row pt-3">
+                            <div class="col-lg-12">
+                                <table class="table table-hover" style="background-color: white !important; border-radius: 10px;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" >Project Name</th>
+                                            <th scope="col" >Client Name</th>
+                                            <th scope="col" >Assigned Employees</th>
+                                            <th scope="col" >Start Date</th>
+                                            <th scope="col" >End Date</th>
+                                            <th scope="col" >Project Status</th>
+                                            <th scope="col" class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let project of displayedProjects">
+                                            <td >{{project?.project_details.project_name}}</td>
+                                            <td>{{project?.project_details.client.client_name}}</td>
+                                            <td>{{project?.resource_count}}</td>
+                                            <td>{{project?.project_details.start_date}}</td> 
+                                            <td>{{project?.project_details.end_date}}</td>
+                                            
+                                            <td class="text-center">
+                                                <div *ngIf="project?.project_details?.status==='Active'">
+                                                    <span style="background-color: rgb(144, 238, 144,0.5); padding: 8px 20px;  border-radius: 50px; ">Active</span>
+                                                </div>
+                                                <div *ngIf="project?.project_details?.status==='Inactive'">
+                                                    <span style="background-color: rgb(255, 0, 0,0.2); padding: 8px 20px; border-radius: 50px; ">Inactive</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <button tooltip="Edit" (click)="vieworEditProject(project.project_details?.id)" class="text-center" style=" border: none; background-color: transparent;">
+                                                    <i class="fa-solid fa-user-pen" style="font-size: 18px; color: #3F51B5;"></i>
+                                                  </button>
+                                                <!-- <button (click)="viewResource('view',resource.resource_details?.id)" class="text-center" style=" border: none; background-color: transparent;">
+                                                    <i class="fas fa-eye" style="font-size: 18px; color: #506681;"></i>
+                                                </button> -->
+                                            </td>
+                                        </tr>
+                                </table>
+                                <div class="d-flex justify-content-end p-2">
+                                    <ngb-pagination
+                                      [collectionSize]="allProjects.length"
+                                      [(page)]="page"
+                                      [pageSize]="pageSize"
+                                      (pageChange)="refreshCountries()"
+                                    >
+                                    </ngb-pagination>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </mat-tab>
+    
+                <mat-tab label="My Projects">
+                    <app-my-projects></app-my-projects>
+                </mat-tab>
+            </mat-tab-group>
+    
+            <div *ngIf="this.role === 'Approver' || this.role ==='Resource'">
+                <app-my-projects></app-my-projects>
+            </div>
+    
+    
+        </div>
+    </div>
+</div>
+
+<div class="p-0" style="border-radius: 1rem;">
+    
+</div>
+    

@@ -1,0 +1,105 @@
+// #spinner {
+//     opacity: 1 !important;
+//     background-color: transparent !important;
+//   }
+  
+//   :host ::ng-deep #spinner[_ngcontent-c2] {
+//       opacity: 1 !important;
+//       background-color: #f1f1f100 !important;
+//     }
+  
+//   .loader-overlay {
+//       width: 100%;
+//       height: 100%;
+//       opacity: 1;
+//       position: absolute;
+//       z-index: 99999;
+//       min-height: 150px;
+//   }
+//   .nettracer-dual-ring {
+//     display: inline-block;
+//     width: 64px;
+//     height: 64px;
+//   }
+//   .nettracer-dual-ring:after {
+//     content: " ";
+//     display: block;
+//     width: 60px;
+//     height: 60px;
+//     margin: 1px;
+//     border-radius: 50%;
+//     border: 6px solid #fff;
+//     border-color: #5865c7 transparent #5865c7 transparent;
+//     animation: nettracer-dual-ring 1.2s linear infinite;
+//   }
+//   @keyframes nettracer-dual-ring {
+//     0% {
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//     }
+//   }
+
+
+  
+.loader {
+  width: 50px;
+  height: 165px;
+  position: relative;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50% , 0);
+  width: 16px;
+  height: 16px;
+  background: orange;
+  border-radius: 50%;
+  animation: bounce 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 48px;
+  width: 48px;
+  background: #293A58;
+  border-radius: 4px;
+  animation: rotate 1.2s linear infinite;
+}
+
+@keyframes bounce {
+  0% , 50% , 100%{
+    transform: translate(-50%, 0px);
+    height: 20px;
+  }
+  20% {
+    transform: translate(-25%, 85px);
+    height: 28px;
+  }
+  25% {
+    transform: translate(-25%, 110px);
+    height: 12px;
+  }
+  70% {
+    transform: translate(-75%, 85px);
+    height: 28px;
+  }
+  75% {
+    transform: translate(-75%, 108px);
+    height: 12px;
+  }
+}
+@keyframes rotate {
+  0% , 50% , 100%{ transform: rotate(0deg)}
+  25% { transform: rotate(90deg)}
+  75%{ transform: rotate(-90deg)}
+}
+  
+  

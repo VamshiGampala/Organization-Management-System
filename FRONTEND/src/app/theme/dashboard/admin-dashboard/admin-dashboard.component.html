@@ -1,0 +1,47 @@
+<div class="col-lg-12 d-flex">
+    <div class="col-lg-6">
+        <div class="card p-0" style="border-radius: 1rem">
+            <div class="card-title mb-0 pl-3 pt-3 pb-0">
+                <h3 style="font-size: 20px; font-weight: bold;">Projects By Client</h3>
+            </div>
+            <div class="card-body p-0">
+                <apx-chart #ProjectList  [series]="ProjectsCount.series"
+                [chart]="ProjectsCount.chart"
+                [dataLabels]="ProjectsCount.dataLabels"
+                [plotOptions]="ProjectsCount.plotOptions"
+                [yaxis]="ProjectsCount.yaxis"
+                [legend]="ProjectsCount.legend"
+                [fill]="ProjectsCount.fill"
+                [stroke]="ProjectsCount.stroke"
+                [tooltip]="ProjectsCount.tooltip"
+                [xaxis]="ProjectsCount.xaxis"
+                [colors]="ProjectsCount.colors">
+                </apx-chart>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card p-0" style="border-radius: 1rem">
+            <div class="card-title mb-0 pl-3 pt-3 pb-0">
+                <h3 style="font-size: 20px; font-weight: bold;">Employees By Project</h3>
+            </div>
+            <div class="card-body p-0">
+                <div id="chart">
+                    <apx-chart 
+                      [series]="Resources.series"
+                      [chart]="Resources.chart"
+                      [dataLabels]="Resources.dataLabels"
+                      [plotOptions]="Resources.plotOptions"
+                      [yaxis]="Resources.yaxis"
+                      [legend]="Resources.legend"
+                      [fill]="Resources.fill"
+                      [stroke]="Resources.stroke"
+                      [tooltip]="Resources.tooltip"
+                      [xaxis]="Resources.xaxis"
+                      [colors]="Resources.colors"
+                    ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

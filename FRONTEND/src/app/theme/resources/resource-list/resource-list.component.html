@@ -1,0 +1,210 @@
+<!-- <h1 class="topHeader" style="color: #3F51B5; font-size: 20px;">Employees</h1> -->
+<div class="row">
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Total Employees</h5>
+                <span class="h2 font-weight-bold mb-0">{{this.resourceList?.total_resource_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape text-white rounded-circle shadow"  style="background-color: #FB6340;">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Active Employees</h5>
+                <span class="h2 font-weight-bold mb-0">{{this.resourceList?.active_resource_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape text-white rounded-circle shadow" style="background-color: #4FD089;">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6" id="col6">
+        <div class="card card-stats mb-4 mb-xl-0" id="card2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Inactive Employees</h5>
+                <span class="h2 font-weight-bold mb-0">{{this.resourceList?.inactive_resource_count}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                  <i class="fas fa-chart-column"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="col-lg-12 d-flex px-0">
+    <div class=" col-lg-3">
+        <div class="card shadow rounded col-lg-12" id="firstCard" style="background-color: #26C6DA;">
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-4 text-center">
+                    <button class="btn">
+                        <i id="card_icon" style="color: white;" class="fa-solid fa-users"></i>
+                    </button>
+                </div>
+                <div class="col-lg-8 px-0">
+                    <label style="font-size: 16px; color: white; font-weight: bold;">Total Employees</label><a class="ml-1"></a><br>
+                    <b class="card-number pt-3" style="font-size: 20px; color: white">{{this.resourceList?.total_resource_count}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1">
+
+    </div>
+    <div class=" col-lg-3 ml-4">
+        <div class="card card shadow col-lg-12" id="firstCard" style="background-color: #50DEC2;">
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-4 text-center">
+                    <button class="btn">
+                        
+                        <i id="card_icon" style="color: white" class="fa-regular fa-circle-check"></i>
+                    </button>
+                </div>
+                
+                <div class="col-lg-8 px-0">
+                    <label style="font-size: 16px; font-weight: bold; color: white;">Active Employees</label><a class="ml-1"></a><br>
+                    <b class="card-number pt-3" style="font-size: 20px; color: white">{{this.resourceList?.active_resource_count}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 ml-4">
+        <div class="card card shadow col-lg-12" id="firstCard" style="background-color: #FF7C91;">
+            <div class="col-lg-12 d-flex">
+                <div class="col-lg-4 text-center">
+                    <button class="btn">
+                        
+                        <i id="card_icon" style="color: white;" class="fa-regular fa-circle-xmark"></i>
+                    </button>
+                </div>
+                <div class="col-lg-9 px-0">
+                    <label style="font-size: 16px; font-weight: bold; color: white;">Inactive Employees</label><a></a><br>
+                    <b class="pt-1" style="font-size: 20px; color: white">{{this.resourceList?.inactive_resource_count}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid pb-0">
+    <div class="row pt-3 pl-1" >
+        <div class="col-lg-3">
+            <div class="search-container">
+                <input class="form-control form-control-sm search-input" type="text" style="height: 40px !important;"   [(ngModel)]="searchText" (keyup)="search()"
+                placeholder="Search Employees">
+                <i class="fa fa-search search-icon" aria-hidden="true"  ></i>
+               
+            </div>
+        </div>
+        <div class="col-lg-9 text-right" style="padding-right: 22px;">
+            <button type="button"[routerLink]="['/employees-list', 'add-resource']" class="add-button"
+                >
+                <i class="fa-regular fa-plus" aria-hidden="true"></i> Add Employee
+            </button>
+        </div>
+    </div>
+    
+</div>
+<div class="container-fluid pt-0" >
+    <div class="row pl-1 pr-2 pt-0" >
+        <div class="col-lg-12 pt-3">
+            <!-- <ag-grid-angular  class="ag-theme-alpine pt-2"
+            [gridOptions]="gridOptions" 
+                (gridReady)="onGridReady($event)"
+                (paginationChanged)="onPaginationChanged($event)">
+            </ag-grid-angular> -->
+            <table class="table table-hover" style="background-color: white !important; border-radius: 10px;">
+                <thead>
+                    <tr>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Email ID</th>
+                        <th scope="col">Mobile Number</th>
+                        <th scope="col">Projects</th>
+                        <th scope="col">Employee Status</th>
+                        <th scope="col">Employment Type</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let resource of displayedResources">
+                        <td>{{resource?.resource_details?.resource_number}}</td>
+                        <td>{{resource?.resource_details?.first_name+' '+resource?.resource_details?.last_name}}</td>
+                        <td>{{resource?.resource_details?.email_id}}</td>
+                        <td>{{resource?.resource_details?.primary_phone_number}}</td>
+                        <td>
+                            <div class="d-flex" *ngFor="let project of resource?.resource_projects; let i = index">
+                                <span class="valuebold d-flex" *ngIf="i===resource?.resource_projects.length-1">
+                                    {{project?.project_name}}
+                                </span>
+                                <span class="valuebold d-flex" *ngIf="i<resource.resource_projects.length-1">
+                                    {{project?.project_name + ', '}}&nbsp;
+                                </span>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div *ngIf="resource?.resource_details?.status==='Active'">
+                                <span style="background-color: rgb(144, 238, 144,0.5); padding: 8px 20px; border-radius: 50px; ">Active</span>
+                            </div>
+                            <div *ngIf="resource?.resource_details?.status==='Inactive'">
+                                <span style="background-color: rgb(255, 0, 0,0.2); padding: 8px 20px;  border-radius: 50px; ">Inactive</span>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div *ngIf="resource?.resource_details?.employement_type.type==='Permanent'">
+                                <span style="background-color: #E6F7FF; padding: 8px 10px; color: #506DD9;  border-radius: 50px;">Permanent</span>
+                            </div>
+                            <div *ngIf="resource?.resource_details?.employement_type.type==='W2-Hourly'">
+                                <span style="background-color: #E6FFFB; padding: 8px 10px; color: #0897B5; border-radius: 50px;">W2-Hourly</span>
+                            </div>
+                            <div *ngIf="resource?.resource_details?.employement_type.type==='Contract'">
+                                <span style="background-color: #E6FFFB; padding: 8px 10px; color: #FB6340; border-radius: 50px;">Contract</span>
+                            </div>
+
+                        </td>
+                        <td>
+                            <button tooltip="Edit" (click)="viewResource('edit',resource.resource_details?.id)" class="text-center" style=" border: none; background-color: transparent;">
+                                <i class="fa-solid fa-user-pen" style="font-size: 18px; color: #3F51B5;"></i>
+                              </button>
+                            <button (click)="viewResource('view',resource.resource_details?.id)" class="text-center" style=" border: none; background-color: transparent;">
+                                <i class="fas fa-eye" style="font-size: 18px; color: #506681;"></i>
+                            </button>
+                        </td>
+                    </tr>
+            </table>
+
+            
+            <div class="d-flex justify-content-end p-2">
+                <ngb-pagination
+                  [collectionSize]="allResources.length"
+                  [(page)]="page"
+                  [pageSize]="pageSize"
+                  (pageChange)="refreshCountries()"
+                >
+                </ngb-pagination>
+              
+              </div>
+            </div>
+        
+    </div>
+    
+</div>

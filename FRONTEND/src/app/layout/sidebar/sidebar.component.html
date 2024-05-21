@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <!-- <ul class="menu">
+      <li *ngFor="let data of menuListForAdmin">
+        <a class="btn" [routerLink]="['/'+ data.path]" routerLinkActive="selected" [matTooltipPosition]="'right'" [matTooltip]="data.name" matTooltipClass="custom-tooltip">
+          <i class="fas {{data.icon}}" style="font-size: 20px;" aria-hidden="true" ></i>
+          
+        </a>
+      </li>
+    </ul> -->
+    <ul class="menu" *ngIf="this.role === 'Admin'">
+      <li *ngFor="let data of menuList">
+        <a class="btn" [routerLink]="['/'+ data.path]" routerLinkActive="selected" [matTooltipPosition]="'right'" [matTooltip]="data.name" matTooltipClass="custom-tooltip">
+          <i class="fas {{data.icon}}" aria-hidden="true" style="font-size: 20px;"></i>
+          
+        </a>
+      </li>
+    </ul>
+    
+    <!-- <ul class="menu" *ngIf="this.role === 'Resource'">
+      <li *ngFor="let data of menuListforResources">
+        <a class="btn" [routerLink]="['/'+ data.path]" routerLinkActive="selected" [matTooltipPosition]="'right'" [matTooltip]="data.name" matTooltipClass="custom-tooltip">
+          <i class="fas {{data.icon}}" aria-hidden="true" style="font-size: 20px;"></i>
+        </a>
+      </li>
+    </ul> -->
+    
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<p-toast></p-toast>
+<div class="container-fluid h-100 px-0">
+  <div class="lavalite-bg">
+      <div class="lavalite-overlay">
+          <div class="card shadow-lg mb-5 mt-5 container" style="height: 85%; width: 80%; border-radius: 20px;">
+              <div class="row flex-row h-100">
+                  <div class="col-xl-8 col-lg-7 col-md-5 p-0 d-md-block d-lg-block d-sm-none d-none">
+                      <div id="loginImage">
+                          <div id="img">
+                             
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-7 mt-4">
+                      <div class="row">
+                          <div class="col-lg-12 mt-4 mb-3 text-center">
+                            <h1 class="px-0 mb-0" style="font-size: 25px;  color: #293A58;">Welcome To</h1>
+                            <h1 class="px-0" style="font-size: 20px !important; font-weight: 600; color: #293A58;">Organization Management System</h1>
+                          </div>
+                      </div>
+                      <h1 class="login-label ml-4" style="color: #293A58;" >Login</h1>
+                      <div>
+                      <form [formGroup]="loginForm" autocomplete="off" class=" ml-4 mt-2" id="login-form">
+                          <div class="px-0" >
+                              
+                              <input type="text" formControlName="username" style="height: 8vh; padding-left: 20px; border-radius: 25px;" #emailId placeholder="{{ 'Email' }} *"
+                              id="loginEmailId" class="form-control" maxlength="120"
+                              >
+                          </div>
+                          <div class="mt-3">
+                              <div class="password-input">
+                                <input type="{{ showPassword ? 'text' : 'password' }}" style="height: 8vh; padding-left: 20px; border-radius: 25px;" class="form-control" placeholder="{{ 'Password' }} *" formControlName="password">
+                                <span class="password-toggle" (click)="togglePasswordVisibility()">
+                                  <i style="font-size: 20px; color: rgb(86, 85, 85);" class="fa" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
+                                </span>
+                              </div>
+                          </div>
+                          <br>
+                          <div class="text-center mt-4 px-0">
+                              <button class="submit-button shadow form-control" (click)="submit()">Login</button>
+                           </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+</div>
